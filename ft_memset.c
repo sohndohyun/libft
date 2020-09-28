@@ -6,13 +6,13 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 11:25:32 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/28 11:40:22 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/28 15:43:46 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
-void	*memset(void *s, int o, size_t n)
+void	*ft_memset(void *s, int o, size_t n)
 {
 	unsigned char *temp;
 
