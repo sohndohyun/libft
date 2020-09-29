@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 14:20:56 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 14:29:26 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/29 15:15:23 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*p = s;
+	unsigned char	*p;
 
+	p = s;
 	while (n-- > 0)
 	{
 		if (p == (unsigned char)c)

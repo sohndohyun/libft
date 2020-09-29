@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 14:34:27 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 15:15:06 by dsohn            ###   ########.fr       */
+/*   Created: 2020/09/29 15:30:36 by dsohn             #+#    #+#             */
+/*   Updated: 2020/09/29 15:35:48 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	const unsigned char	*p1 = s1;
-	const unsigned char	*p2 = s2;
+	const char	*s = src;
+	char		*d;
+	size_t		n;
+	size_t		dlen;
 
-	while (n--)
+	d = dst;
+	n = dstsize;
+	while (n-- != 0 && *d)
+		d++;
+	dlen = d - dst;
+	n = dstsize - dlen;
+	if (n == 0)
+		return (dlen + strlen(s));
+	while (*s)
 	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
+		if (n != 1)
+		{
+			*d++ = *s;
+			n--;
+		}
+		s++;
 	}
-	return (0);
+	*d = 0;
+	return (dlen + (s - src));
 }

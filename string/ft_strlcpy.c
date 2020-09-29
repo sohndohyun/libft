@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 14:34:27 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 15:15:06 by dsohn            ###   ########.fr       */
+/*   Created: 2020/09/29 15:20:43 by dsohn             #+#    #+#             */
+/*   Updated: 2020/09/29 15:36:03 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	const unsigned char	*p1 = s1;
-	const unsigned char	*p2 = s2;
+	const size_t srclen = ft_strlen(src);
 
-	while (n--)
+	if (srclen + 1 < dstsize)
+		ft_memcpy(dst, src, srclen + 1);
+	else if (dstsize != 0)
 	{
-		if (*p1 != *p2)
-			return (*p1 - *p2);
-		p1++;
-		p2++;
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = 0;
 	}
-	return (0);
+	return (srclen);
 }
