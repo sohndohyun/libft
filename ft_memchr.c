@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 17:10:41 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 20:19:19 by dsohn            ###   ########.fr       */
+/*   Created: 2020/09/29 14:20:56 by dsohn             #+#    #+#             */
+/*   Updated: 2020/09/30 01:55:39 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	return ('0' <= c && c <= '9');
+	unsigned char	*p;
+
+	p = (unsigned char*)s;
+	while (n-- > 0)
+	{
+		if (*p == (unsigned char)c)
+			return (p);
+		p++;
+	}
+	return (NULL);
 }
