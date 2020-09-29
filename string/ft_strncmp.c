@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 15:30:36 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 15:38:32 by dsohn            ###   ########.fr       */
+/*   Created: 2020/09/29 16:02:21 by dsohn             #+#    #+#             */
+/*   Updated: 2020/09/29 16:04:50 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	const char	*s = src;
-	char		*d;
-	size_t		n;
-	size_t		dlen;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
-	d = dst;
-	n = dstsize;
-	while (n-- != 0 && *d)
-		d++;
-	dlen = d - dst;
-	n = dstsize - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s)
+	p1 = (unsigned char*)s1;
+	p2 = (unsigned char*)s2;
+	while (n--)
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
-		s++;
+		if (*p1 != *p2)
+			return (*p1 - *p2);
+		p1++;
+		p2++;
 	}
-	*d = 0;
-	return (dlen + (s - src));
+	return (0);
 }

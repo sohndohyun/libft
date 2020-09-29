@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 15:30:36 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 15:38:32 by dsohn            ###   ########.fr       */
+/*   Created: 2020/09/29 15:44:49 by dsohn             #+#    #+#             */
+/*   Updated: 2020/09/29 17:12:19 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strrchr(const char *s, int c)
 {
-	const char	*s = src;
-	char		*d;
-	size_t		n;
-	size_t		dlen;
+	char	*ret;
 
-	d = dst;
-	n = dstsize;
-	while (n-- != 0 && *d)
-		d++;
-	dlen = d - dst;
-	n = dstsize - dlen;
-	if (n == 0)
-		return (dlen + ft_strlen(s));
-	while (*s)
+	ret = 0;
+	while (1)
 	{
-		if (n != 1)
-		{
-			*d++ = *s;
-			n--;
-		}
+		if (*s == (char)c)
+			ret = s;
+		if (!*s)
+			break ;
 		s++;
 	}
-	*d = 0;
-	return (dlen + (s - src));
+	return (ret);
 }
