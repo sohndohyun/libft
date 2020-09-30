@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 14:25:53 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/30 14:28:13 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/30 17:39:51 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	{
 		temp = *lst;
 		*lst = temp->next;
-		ft_lstdelone(temp, del);		
+		ft_lstdelone(temp, del);
 	}
 }
