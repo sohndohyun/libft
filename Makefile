@@ -51,6 +51,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 all: $(NAME)
+bonus: all
 clean:	
 	rm -f $(OBJS)
 fclean: clean
