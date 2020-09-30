@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/30 01:00:32 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/30 04:13:00 by dsohn            ###   ########.fr       */
+/*   Created: 2020/09/30 14:57:59 by dsohn             #+#    #+#             */
+/*   Updated: 2020/09/30 15:57:58 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr_fd(char *s, int fd)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 {
-	write(fd, s, ft_strlen(s));
+	t_list	*dup;
+	t_list	*node;
+
+	dup = NULL;
+	while (lst)
+	{
+		node = ft_lstnew(f(lst->content));
+		if (!(node = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&dup, del);
+			return (NULL);
+		}
+		if (dup == NULL)
+			dup = node;
+		else
+			ft_lstadd_back(&dup, node);
+		lst = lst->next;
+	}
+	return (dup);
 }
