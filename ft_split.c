@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 22:50:38 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/30 01:57:32 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/30 18:00:55 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ char		**ft_split(const char *s1, char c)
 	char	**result;
 	int		i;
 
+	if (s1 == NULL)
+		return (NULL);
 	bcnt = ft_countblock(s1, c);
 	if (!(result = (char**)malloc(sizeof(char*) * (bcnt + 1))))
 		return (NULL);

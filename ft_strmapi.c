@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/30 00:52:38 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/30 01:58:33 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/30 17:56:56 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	char			*dup;
 	unsigned int	i;
 
+	if (s == NULL || f == NULL)
+		return (NULL);
 	if (!(dup = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:39:13 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 21:52:38 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/30 18:01:40 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	len2;
 	char	*dup;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	dup = (char*)malloc(len1 + len2 + 1);

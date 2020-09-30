@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:59:58 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/30 02:56:29 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/30 17:54:39 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char			*ft_strtrim(const char *s1, const char *set)
 	size_t	end;
 	char	*dup;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	len = ft_strlen(s1);
 	start = ft_trimstart(s1, set, len);
 	end = ft_trimend(s1, set, len);

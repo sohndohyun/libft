@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 21:23:43 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/30 03:04:18 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/30 17:54:11 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	size_t	slen;
 	void	*dup;
 
+	if (s == NULL)
+		return (NULL);
 	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
 	slen = ft_strlen(s + start);

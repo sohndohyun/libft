@@ -6,7 +6,7 @@
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 15:20:43 by dsohn             #+#    #+#             */
-/*   Updated: 2020/09/29 15:36:03 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/09/30 17:52:38 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	const size_t srclen = ft_strlen(src);
+	size_t srclen;
 
+	if (dst == NULL || src == NULL)
+		return (0);
+	srclen = ft_strlen(src);
 	if (srclen + 1 < dstsize)
 		ft_memcpy(dst, src, srclen + 1);
 	else if (dstsize != 0)
