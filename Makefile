@@ -33,7 +33,8 @@ SRCS = ft_bzero.c \
 		ft_tolower.c \
 		ft_toupper.c \
 		ft_strnstr.c \
-		ft_lstadd_back.c \
+
+SRCS_B = ft_lstadd_back.c \
 		ft_lstadd_front.c \
 		ft_lstclear.c \
 		ft_lstdelone.c \
@@ -43,17 +44,24 @@ SRCS = ft_bzero.c \
 		ft_lstnew.c \
 		ft_lstsize.c 
 OBJS = ${SRCS:.c=.o}
+OBJS_B = ${SRCS_B:.c=.o}
 
-.c.o:
-	gcc -Wall -Wextra -Werror -I. -c $< -o $(<:.c=.o)
+$(OBJS): $(SRCS)
+	gcc -Wall -Wextra -Werror -c $(SRCS)
+
+$(OBJS_B): $(SRCS_B)
+	gcc -Wall -Wextra -Werror -c $(SRCS_B)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	ar rc $(NAME) $(OBJS)
 
 all: $(NAME)
-bonus: all
+
+bonus: fclean $(OBJS) $(OBJS_B)
+	ar rc $(NAME) $(OBJS) $(OBJS_B)
+
 clean:	
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_B)
 fclean: clean
 		rm -f $(NAME)
 re: fclean all
