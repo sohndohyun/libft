@@ -47,10 +47,10 @@ OBJS = ${SRCS:.c=.o}
 OBJS_B = ${SRCS_B:.c=.o}
 
 $(OBJS): $(SRCS)
-	gcc -Wall -Wextra -Werror -c $(SRCS)
+	gcc -Wall -Wextra -Werror -I. -c $(SRCS)
 
 $(OBJS_B): $(SRCS_B)
-	gcc -Wall -Wextra -Werror -c $(SRCS_B)
+	gcc -Wall -Wextra -Werror -I. -c $(SRCS_B)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
