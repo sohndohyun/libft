@@ -46,6 +46,8 @@ SRCS_B = ft_lstadd_back.c \
 OBJS = ${SRCS:.c=.o}
 OBJS_B = ${SRCS_B:.c=.o}
 
+all: $(NAME)
+
 $(OBJS): $(SRCS)
 	gcc -Wall -Wextra -Werror -I. -c $(SRCS)
 
@@ -54,8 +56,6 @@ $(OBJS_B): $(SRCS_B)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
-
-all: $(NAME)
 
 bonus: fclean $(OBJS) $(OBJS_B)
 	ar rc $(NAME) $(OBJS) $(OBJS_B)
