@@ -42,7 +42,14 @@ SRCS_B = ft_lstadd_back.c \
 		ft_lstlast.c \
 		ft_lstmap.c \
 		ft_lstnew.c \
-		ft_lstsize.c 
+		ft_lstsize.c \
+		ft_bigint_add.c \
+		ft_bigint_compare.c \
+		ft_bigint_init.c \
+		ft_bigint_util.c \
+		ft_bigint_multiply_bi.c \
+		ft_bigint_multiply_else.c \
+		ft_bigint_pow.c
 
 OBJS = ${SRCS:.c=.o}
 OBJS_B = ${SRCS_B:.c=.o}
