@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsohn <dsohn@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 11:23:51 by dsohn             #+#    #+#             */
-/*   Updated: 2020/10/16 20:21:42 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/10/17 01:16:04 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,5 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void*));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
-t_bigint	*bigint_dup(t_bigint *target, const t_bigint *source);
-t_ul		bigint_getlength(t_bigint *target);
-t_ul		bigint_getblock(t_bigint *target, t_ul index);
-void		bigint_setzero(t_bigint *target);
-int			bigint_iszero(t_bigint *target);
-void		bigint_setu64(t_bigint *target, t_ull value);
-void		bigint_setu32(t_bigint *target, t_ul value);
-t_ul		bigint_getu32(t_bigint *target);
-long		bigint_compare(const t_bigint *bi1, const t_bigint *bi2);
-void		bigint_add(t_bigint *result, \
-			const t_bigint *bi1, const t_bigint *bi2);
-void		bigint_multiply_bi(t_bigint *result, \
-			const t_bigint *bi1, const t_bigint *bi2);
-void		bigint_multiply_ul(t_bigint *result, \
-			const t_bigint *bi, t_ul ul);
-void		bigint_multiply_2(t_bigint *result);
-void		bigint_multiply_10(t_bigint *result);
-void		bigint_pow10(t_bigint *result, t_ul exponent);
-void		bigint_multiply_pow10(t_bigint *result, \
-			const t_bigint *in, t_ull exponent);
-void		bigint_pow2(t_bigint *result, t_ul exponent);
 
 #endif
