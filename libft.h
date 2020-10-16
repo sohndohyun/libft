@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: dsohn <dsohn@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 11:23:51 by dsohn             #+#    #+#             */
-/*   Updated: 2020/10/16 02:44:41 by dsohn            ###   ########.fr       */
+/*   Updated: 2020/10/16 16:34:44 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,9 @@ void		bigint_multiply_ul(t_bigint *result, \
 			const t_bigint *bi, t_ul ul);
 void		bigint_multiply_2(t_bigint *result);
 void		bigint_multiply_10(t_bigint *result);
+void		bigint_pow10(t_bigint *result, t_ul exponent);
+void		bigint_multiply_pow10(t_bigint *result, \
+			const t_bigint *in, t_ull exponent);
+void		bigint_pow2(t_bigint *result, t_ul exponent);
 
 #endif
