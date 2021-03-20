@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_def.h                                           :+:      :+:    :+:   */
+/*   ft_lstat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/15 12:48:21 by dsohn             #+#    #+#             */
-/*   Updated: 2020/10/15 14:19:49 by dsohn            ###   ########.fr       */
+/*   Created: 2020/12/18 22:47:18 by dsohn             #+#    #+#             */
+/*   Updated: 2021/03/10 02:48:43 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_DEF_H
-# define FT_DEF_H
+#include "libft.h"
 
-# include <stddef.h>
-# define BI_MAXBLOCK 35
-
-typedef struct				s_list
+void	*ft_lstat(t_list *lst, int at)
 {
-	void					*content;
-	struct s_list			*next;
-}							t_list;
+	int	i;
 
-typedef unsigned long long	t_ull;
-typedef unsigned long		t_ul;
-typedef long long			t_ll;
-
-typedef struct				s_bigint
-{
-	t_ul					length;
-	t_ul					blocks[BI_MAXBLOCK];
-}							t_bigint;
-
-#endif
+	i = 0;
+	while (i < at && lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	if (lst)
+		return (lst->content);
+	else
+		return (NULL);
+}

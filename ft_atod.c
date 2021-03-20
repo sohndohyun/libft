@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsohn <dsohn@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/29 16:22:24 by dsohn             #+#    #+#             */
-/*   Updated: 2021/03/10 03:29:45 by dsohn            ###   ########.fr       */
+/*   Created: 2020/12/13 03:07:17 by dsohn             #+#    #+#             */
+/*   Updated: 2021/03/10 03:08:37 by dsohn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+double	ft_atod(const char *str)
 {
-	unsigned int	res;
-	unsigned int	chk;
-	int				neg;
+	double	val;
+	double	multiple;
+	double	sign;
 
-	neg = 1;
-	res = 0;
-	chk = 214748364;
+	val = 0;
+	multiple = 1;
+	sign = 1;
 	while (*str == ' ' || *str == '\n' || *str == '\t' || \
 			*str == '\v' || *str == '\f' || *str == '\r')
 		++str;
 	if (*str == '-')
-		neg = -1;
+		sign = -1;
 	if (*str == '-' || *str == '+')
 		++str;
 	while (ft_isdigit(*str))
+		val = val * 10 + *str++ - '0';
+	if (*str == '.')
+		str++;
+	while (ft_isdigit(*str))
 	{
-		if ((res > chk || (res == chk && *str > '7')) && neg > 0)
-			return (-1);
-		if ((res > chk || (res == chk && *str > '8')) && neg < 0)
-			return (0);
-		res = res * 10 + (*str++ - '0');
+		val = val * 10 + *str++ - '0';
+		multiple *= 0.1;
 	}
-	return (res * neg);
+	return (sign * val * multiple);
 }
